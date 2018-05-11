@@ -26,6 +26,7 @@ subprojects {
     }
 
     gradle.startParameter.excludedTaskNames += "license"
+    gradle.startParameter.excludedTaskNames += "javadoc"
 
     compileJava { options.fork = true }
 
