@@ -1,0 +1,37 @@
+allprojects {
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    group = 'com.company.template'
+    version = '1.0.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply from: '../gradle/analysisAndStyle.gradle'
+    apply from: '../gradle/license.gradle'
+
+    ext {
+        springBootVersion = '2.0.2.RELEASE'
+        springCloudVersion = 'Finchley.BUILD-SNAPSHOT'
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+
+    jar {
+        manifest {
+            attributes("Implementation-Title": project.name,
+                    "Implementation-Version": project.version)
+        }
+    }
+
+    gradle.startParameter.excludedTaskNames += "license"
+
+    compileJava { options.fork = true }
+
+    if (!rootProject.hasProperty('devtools')) {
+        rootProject.ext.devtools = false
+    }
+
+}
+

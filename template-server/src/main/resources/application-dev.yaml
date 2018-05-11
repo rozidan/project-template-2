@@ -1,0 +1,34 @@
+spring:
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      use-new-id-generator-mappings: true
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  jackson:
+    default-property-inclusion: non-null
+    serialization:
+      write-dates-as-timestamps: false
+
+  flyway:
+    enabled: false
+
+server:
+  servlet:
+    context-path: /template
+  port: 8080
+
+logging:
+  level:
+    root: info
+    com.company.template: debug
+
+levelog:
+  rest:
+    enabled: true
