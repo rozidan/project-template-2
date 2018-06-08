@@ -1,26 +1,31 @@
 package com.company.template.server;
 
+import com.company.template.client.api.RestPageTypeReference;
 import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.client.web.dtos.RestPageImpl;
 import com.company.template.client.web.dtos.TagDto;
 import com.company.template.client.web.dtos.catalogue.CatalogueResponse;
 import com.company.template.client.web.dtos.types.ProductCategoryDto;
-
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
 
 //https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
@@ -33,7 +38,7 @@ public class CatalogueIntegrationTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void whenCatalogue_thenIdAnd200IsReceived() {
+    public void when1Catalogue_thenIdAnd201IsReceived() {
         ProductDto product = ProductDto.builder()
                 .name("T")
                 .category(ProductCategoryDto.CLOTHING)

@@ -27,7 +27,7 @@ public class AutoConfigurationWithCustomBeansTest {
     private RestTemplate restTemplate;
 
     @Test
-    public void shouldInstantiateCustomRestTemplate() {
+    public void whenRestTemplateExists_thenDontCreateDefault() {
         assertThat(restTemplate.getInterceptors(), hasSize(1));
     }
 

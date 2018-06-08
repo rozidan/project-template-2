@@ -8,6 +8,7 @@ import com.company.template.server.domain.model.types.ProductCategory;
 import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 
 import java.util.Arrays;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;

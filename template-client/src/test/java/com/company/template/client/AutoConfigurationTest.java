@@ -34,23 +34,23 @@ public class AutoConfigurationTest {
     private ProductRestClient client;
 
     @Test
-    public void shouldInstantiateRestClient() {
+    public void whenClientIsDependency_thenRestClientCreated() {
         assertThat(client, is(notNullValue()));
     }
 
     @Test
-    public void shouldInstantiateDefaultRestTemplate() {
+    public void whenRestTemplateNotExists_thenCreateDefault() {
         assertThat(restTemplate, is(notNullValue()));
         assertThat(restTemplate.getInterceptors(), hasSize(0));
     }
 
     @Test
-    public void shouldInstantiateProperties() {
+    public void whenClientIsDependency_thenRestPropertiesCreated() {
         assertThat(properties, is(notNullValue()));
     }
 
     @Test
-    public void shouldOverrideDefaultProperty() {
+    public void whenPropertyExists_thenOverrideDefaults() {
         assertThat(properties.getPath(), is(equalTo("someServer")));
     }
 
