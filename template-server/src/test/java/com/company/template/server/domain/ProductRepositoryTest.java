@@ -4,15 +4,17 @@ import com.company.template.server.domain.model.Product;
 import com.company.template.server.domain.model.Tag;
 import com.company.template.server.domain.model.types.ProductCategory;
 import com.company.template.server.domain.repositories.ProductRepository;
-
-import java.util.Optional;
-import javax.validation.ConstraintViolationException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.validation.ConstraintViolationException;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -20,6 +22,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
+@ActiveProfiles("test")
 @DataJpaTest
 public class ProductRepositoryTest {
 
@@ -30,7 +33,7 @@ public class ProductRepositoryTest {
     private ProductRepository repository;
 
     @Test
-    public void getOneShouldSuccess() {
+    public void whenGetOne_thenReturnProduct() {
         Product persist = entityManager.persist(Product.builder()
                 .name("John")
                 .category(ProductCategory.GAME)
@@ -38,7 +41,7 @@ public class ProductRepositoryTest {
                 .desc("desc")
                 .build());
 
-        Optional<Product> product = repository.getOne(persist.getId());
+        Optional<Product> product = repository.getOne(1); //persist.getId());
         assertTrue(product.isPresent());
         assertThat(product.get().getName(), is(equalTo("John")));
         assertThat(product.get().getCategory(), is(equalTo(ProductCategory.GAME)));
@@ -47,7 +50,7 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    public void getAverageShouldSuccess() {
+    public void whenGetAverage_thenReturnAvgFloat() {
         entityManager.persist(Product.builder()
                 .name("John")
                 .category(ProductCategory.GAME)
@@ -66,7 +69,7 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    public void existsByNameAndIdNotShouldSuccess() {
+    public void whenExistsByNameAndIdNot_thenReturnTrue() {
         Product product = entityManager.persist(Product.builder()
                 .name("John")
                 .category(ProductCategory.GAME)
@@ -79,7 +82,7 @@ public class ProductRepositoryTest {
     }
 
     @Test(expected = ConstraintViolationException.class)
-    public void saveProductWithoutNameShouldFailed() {
+    public void wheSsaveProductWithoutName_thenThrowConstraintViolationException() {
         Product product = Product.builder()
                 .category(ProductCategory.GAME)
                 .unitPrice(100F)

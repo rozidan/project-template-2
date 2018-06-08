@@ -9,7 +9,6 @@ import com.company.template.server.services.ProductService;
 import com.company.template.server.web.controllers.CatalogueController;
 import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
 import com.fasterxml.jackson.databind.ObjectWriter;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +49,7 @@ public class CatalogueControllerTest {
     private ProductService service;
 
     @Test
-    public void catalogueSuccess() throws Exception {
+    public void whenCatalogue_thenReturnProductDto() throws Exception {
         ProductDto request = ProductDto.builder()
                 .name("John")
                 .category(ProductCategoryDto.CLOTHING)
@@ -72,7 +71,7 @@ public class CatalogueControllerTest {
     }
 
     @Test
-    public void removeNotExistsShouldHandleError() throws Exception {
+    public void whenDeleteNotExists_thenReturnNotFound() throws Exception {
         doThrow(new EmptyResultDataAccessException(1)).when(service).remove(1);
 
         mvc.perform(delete("/catalogue/1")
@@ -85,7 +84,7 @@ public class CatalogueControllerTest {
     }
 
     @Test
-    public void catalogUniqueNameShouldHandleError() throws Exception {
+    public void whenCatalogUniqueName_thenReturnErrorDataValidationResponse() throws Exception {
         ProductDto request = ProductDto.builder()
                 .name("John")
                 .category(ProductCategoryDto.CLOTHING)
@@ -111,7 +110,7 @@ public class CatalogueControllerTest {
     }
 
     @Test
-    public void avgPriceSuccess() throws Exception {
+    public void whenAvgPrice_thenReturnAvgResonse() throws Exception {
         when(service.getProductPriceAvg()).thenReturn(10.0F);
 
         mvc.perform(get("/catalogue/avgPrice")
@@ -125,7 +124,7 @@ public class CatalogueControllerTest {
     }
 
     @Test
-    public void catalogueEmptyNameShouldFailed() throws Exception {
+    public void whenCatalogueEmptyName_thenReturnErrorDataValidationResponse() throws Exception {
         ProductDto request = ProductDto.builder()
                 .name("")
                 .category(ProductCategoryDto.CLOTHING)
@@ -150,7 +149,7 @@ public class CatalogueControllerTest {
     }
 
     @Test
-    public void catalogueUnitPriceLowerThen10ShouldFailed() throws Exception {
+    public void whenCatalogueUnitPriceLower10_thenReturnErrorDataValidationResponse() throws Exception {
         ProductDto request = ProductDto.builder()
                 .name("John")
                 .category(ProductCategoryDto.CLOTHING)

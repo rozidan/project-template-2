@@ -30,7 +30,7 @@ public class ProductMappingTest {
     private ModelMapper mapper;
 
     @Test
-    public void productDtoToEntityMappedSuccess() {
+    public void productDtoToEntityMapped_shouldSuccess() {
         ProductDto dto = ProductDto.builder()
                 .name("John")
                 .description("Desc")

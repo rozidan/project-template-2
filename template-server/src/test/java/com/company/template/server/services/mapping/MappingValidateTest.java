@@ -19,7 +19,7 @@ public class MappingValidateTest {
     private ModelMapper mapper;
 
     @Test
-    public void mapperValidationShouldSuccess() {
+    public void mapperValidation_shouldSuccess() {
         try {
             mapper.validate();
 

@@ -2,9 +2,6 @@ package com.company.template.server.config;
 
 import com.company.template.client.web.dtos.ProductDto;
 import com.company.template.server.domain.model.Product;
-
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.errors.SerializationException;
@@ -25,6 +22,9 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Idan Rozenfeld

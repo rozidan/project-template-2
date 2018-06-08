@@ -2,10 +2,10 @@ package com.company.template.client.web.dtos;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+
+import java.util.List;
 
 /**
  * @author Idan Rozenfeld

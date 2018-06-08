@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
 public class CatalogueResponse {
-    private long productId;
+    private Long productId;
 }

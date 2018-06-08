@@ -8,8 +8,6 @@ import com.company.template.server.services.impl.ProductServiceImpl;
 import com.company.template.server.services.mapping.MappingBasePackage;
 import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
 import com.github.rozidan.springboot.modelmapper.WithModelMapper;
-
-import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -18,6 +16,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -39,7 +39,7 @@ public class ProductServiceTest {
     private ProductRepository repository;
 
     @Test
-    public void removeNotExistsShouldFailed() {
+    public void whenRemoveNotExists_thenThrowEmptyResultException() {
         Mockito.when(repository.getOne(1)).thenReturn(Optional.empty());
 
         try {
@@ -53,7 +53,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void catalogUniqueNameShouldHandleError() {
+    public void whenCatalogUniqueName_thenThrowUniqueFieldException() {
         ProductDto productDto = ProductDto.builder()
                 .name("John")
                 .category(ProductCategoryDto.CLOTHING)
@@ -77,7 +77,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void replaceUniqueNameShouldHandleError() {
+    public void whenReplaceUniqueName_thenThrowUniqueFieldException() {
         ProductDto productDto = ProductDto.builder()
                 .name("John")
                 .category(ProductCategoryDto.CLOTHING)

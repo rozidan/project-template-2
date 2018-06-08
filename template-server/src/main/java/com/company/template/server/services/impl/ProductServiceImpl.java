@@ -5,7 +5,6 @@ import com.company.template.server.domain.model.Product;
 import com.company.template.server.domain.repositories.ProductRepository;
 import com.company.template.server.services.ProductService;
 import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
-
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

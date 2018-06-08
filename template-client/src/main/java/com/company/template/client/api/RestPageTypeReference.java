@@ -1,7 +1,6 @@
 package com.company.template.client.api;
 
 import com.company.template.client.web.dtos.RestPageImpl;
-
 import org.springframework.core.ParameterizedTypeReference;
 
 

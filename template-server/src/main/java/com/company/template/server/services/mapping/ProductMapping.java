@@ -3,7 +3,6 @@ package com.company.template.server.services.mapping;
 import com.company.template.client.web.dtos.ProductDto;
 import com.company.template.server.domain.model.Product;
 import com.github.rozidan.springboot.modelmapper.TypeMapConfigurer;
-
 import org.modelmapper.TypeMap;
 import org.springframework.stereotype.Component;
 

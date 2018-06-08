@@ -6,12 +6,6 @@ import com.company.template.client.web.dtos.errors.ValidationErrorCodes;
 import com.company.template.client.web.dtos.errors.ValidationErrorDto;
 import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
 import com.github.rozidan.springboot.logger.Loggable;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -21,6 +15,12 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author Idan Rozenfeld
