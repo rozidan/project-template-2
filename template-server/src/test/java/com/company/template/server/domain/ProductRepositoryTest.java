@@ -43,7 +43,7 @@ public class ProductRepositoryTest {
                 .desc("desc")
                 .build());
 
-        Optional<Product> product = repository.getOne(1); //persist.getId());
+        Optional<Product> product = repository.getOne(persist.getId());
         assertTrue(product.isPresent());
         assertThat(product.get().getName(), is(equalTo("John")));
         assertThat(product.get().getCategory(), is(equalTo(ProductCategory.GAME)));
@@ -84,7 +84,7 @@ public class ProductRepositoryTest {
     }
 
     @Test(expected = ConstraintViolationException.class)
-    public void wheSsaveProductWithoutName_thenThrowConstraintViolationException() {
+    public void whenSaveProductWithoutName_thenThrowConstraintViolationException() {
         Product product = Product.builder()
                 .category(ProductCategory.GAME)
                 .unitPrice(100F)
@@ -97,7 +97,7 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    public void whenFindAllSpecUnitPriceGraterThen15_thenReturnOne() {
+    public void whenFindAllSpecUnitPriceGreaterThen15_thenReturnOne() {
         entityManager.persist(Product.builder()
                 .name("John")
                 .category(ProductCategory.GAME)

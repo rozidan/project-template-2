@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.Singular;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -16,8 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class ValidationErrorDto implements Serializable {
-    private static final long serialVersionUID = 6692364309366067411L;
+public class ValidationErrorDto {
 
     private String fieldName;
 

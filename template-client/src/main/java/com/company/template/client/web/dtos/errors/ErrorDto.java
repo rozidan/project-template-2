@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.Singular;
 
-import java.io.Serializable;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Set;
@@ -21,9 +20,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Builder
-public class ErrorDto implements Serializable {
-    private static final long serialVersionUID = -4708936233513887899L;
-
+public class ErrorDto {
     private String errorCode;
 
     private String message;

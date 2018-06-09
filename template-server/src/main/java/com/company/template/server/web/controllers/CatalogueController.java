@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Idan Rozenfeld
  */
 @Loggable(ignore = Exception.class)
-@Api(tags = "Catalogue", description = "Catalogue")
+@Api(tags = "Catalogue")
 @RestController
 @RequestMapping(path = "/catalogue")
 @AllArgsConstructor(onConstructor = @__({@Autowired}))
