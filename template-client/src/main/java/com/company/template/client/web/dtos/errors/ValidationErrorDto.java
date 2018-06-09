@@ -1,12 +1,13 @@
 package com.company.template.client.web.dtos.errors;
 
 import io.swagger.annotations.ApiModel;
-import java.io.Serializable;
-import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Singular;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author Idan Rozenfeld

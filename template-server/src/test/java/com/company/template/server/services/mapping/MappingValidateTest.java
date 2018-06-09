@@ -1,7 +1,6 @@
 package com.company.template.server.services.mapping;
 
 import com.github.rozidan.springboot.modelmapper.WithModelMapper;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;

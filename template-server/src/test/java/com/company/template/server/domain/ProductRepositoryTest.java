@@ -97,7 +97,7 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    public void whenFindAllUnitPriceGraterThen15_thenReturnOne() {
+    public void whenFindAllSpecUnitPriceGraterThen15_thenReturnOne() {
         entityManager.persist(Product.builder()
                 .name("John")
                 .category(ProductCategory.GAME)
@@ -114,4 +114,5 @@ public class ProductRepositoryTest {
         List<Product> greaterThen15 = repository.findAll(priceIsGreaterThen(15));
         assertThat(greaterThen15, hasSize(1));
     }
+
 }
