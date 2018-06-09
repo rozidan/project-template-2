@@ -13,9 +13,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.validation.ConstraintViolationException;
+import java.util.List;
 import java.util.Optional;
 
+import static com.company.template.server.domain.model.specifications.ProductSpecifications.priceIsGreaterThen;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -91,5 +94,24 @@ public class ProductRepositoryTest {
 
         repository.save(product);
         entityManager.flush();
+    }
+
+    @Test
+    public void whenFindAllUnitPriceGraterThen15_thenReturnOne() {
+        entityManager.persist(Product.builder()
+                .name("John")
+                .category(ProductCategory.GAME)
+                .unitPrice(24F)
+                .desc("desc")
+                .build());
+        entityManager.persist(Product.builder()
+                .name("Mario")
+                .category(ProductCategory.GAME)
+                .unitPrice(12F)
+                .desc("desc")
+                .build());
+
+        List<Product> greaterThen15 = repository.findAll(priceIsGreaterThen(15));
+        assertThat(greaterThen15, hasSize(1));
     }
 }
