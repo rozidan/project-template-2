@@ -1,10 +1,12 @@
 @TypeDefs({
         @TypeDef(defaultForType = UUID.class, typeClass = UUIDCharType.class)
 })
+@NonNullApi
 package com.company.template.server.domain;
 
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 import org.hibernate.type.UUIDCharType;
+import org.springframework.lang.NonNullApi;
 
 import java.util.UUID;
