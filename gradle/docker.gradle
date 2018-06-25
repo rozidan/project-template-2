@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath('com.bmuschko:gradle-docker-plugin:3.1.0')
+        classpath('com.bmuschko:gradle-docker-plugin:3.2.5')
     }
 }
 
@@ -21,7 +21,7 @@ task createDockerfile(type: Dockerfile) {
     from 'openjdk:8-jre-alpine'
     maintainer 'maintainer'
     volume("/tmp")
-    environmentVariable('PROFILE', '""')
+    environmentVariable('PROFILE', 'staging')
     addFile('"' + jar.archiveName.toString() + '"', '"app.jar"')
     Integer[] ports = [8080]
     if (rootProject.devtools.toBoolean()) {
@@ -50,7 +50,7 @@ task createDockerfile(type: Dockerfile) {
 }
 
 task buildImage(type: DockerBuildImage) {
-    dependsOn build, createDockerfile
+    dependsOn bootJar, createDockerfile
     group = 'docker'
     description = 'Builds an image from a Dockerfile.'
     pull true
