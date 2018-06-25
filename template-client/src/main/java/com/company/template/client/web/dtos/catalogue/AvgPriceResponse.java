@@ -1,17 +1,16 @@
 package com.company.template.client.web.dtos.catalogue;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * @author Idan Rozenfeld
  */
 @ApiModel("Avg Price Response")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor(staticName = "of")
+@Getter
+@RequiredArgsConstructor(staticName = "of", onConstructor = @__({@JsonCreator}))
 public class AvgPriceResponse {
-    private float avg;
+    private final float avg;
 }

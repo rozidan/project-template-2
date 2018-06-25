@@ -7,7 +7,7 @@ import org.springframework.data.jpa.domain.Specification;
 @UtilityClass
 public class ProductSpecifications {
 
-    public static Specification<Product> priceIsGreaterThen(final float price) {
+    public static Specification<Product> productCostMoreThan(final float price) {
         return (root, query, cb) -> cb.greaterThan(root.get("unitPrice"), price);
     }
 }

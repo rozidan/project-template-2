@@ -61,7 +61,8 @@ public class CatalogueController {
             @ApiResponse(code = HttpServletResponse.SC_CONFLICT, message = "Invalid product info", response = ErrorDto.class)})
     @ResponseStatus(code = HttpStatus.OK)
     @PutMapping("/{id:\\d+}")
-    public void replace(@ApiParam(required = true) @Validated @RequestBody ProductDto productDto, @PathVariable("id") long id) {
+    public void replace(@ApiParam(required = true) @Validated @RequestBody ProductDto productDto,
+                        @PathVariable("id") long id) {
         productService.replace(productDto, id);
     }
 
@@ -80,7 +81,7 @@ public class CatalogueController {
 
     @ApiOperation("Remove product from catalog")
     @ApiResponses({
-            @ApiResponse(code = HttpServletResponse.SC_CREATED, message = "Product has been removed from catalog"),
+            @ApiResponse(code = HttpServletResponse.SC_OK, message = "Product has been removed from catalog"),
             @ApiResponse(code = HttpServletResponse.SC_NOT_FOUND, message = "Product not found")})
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/{id:\\d+}")
@@ -100,11 +101,12 @@ public class CatalogueController {
 
     @ApiOperation("Fetch single product by id")
     @ApiResponses({
-            @ApiResponse(code = HttpServletResponse.SC_OK, message = "Product has beenfetched"),
+            @ApiResponse(code = HttpServletResponse.SC_OK, message = "Product has been fetched"),
             @ApiResponse(code = HttpServletResponse.SC_NOT_FOUND, message = "Product not found")})
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id:\\d+}")
     public ProductDto fetchSingle(@PathVariable("id") long id) {
         return productService.get(id);
     }
+
 }

@@ -16,7 +16,7 @@ import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 
-import static com.company.template.server.domain.model.specifications.ProductSpecifications.priceIsGreaterThen;
+import static com.company.template.server.domain.model.specifications.ProductSpecifications.productCostMoreThan;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -111,7 +111,7 @@ public class ProductRepositoryTest {
                 .desc("desc")
                 .build());
 
-        List<Product> greaterThen15 = repository.findAll(priceIsGreaterThen(15));
+        List<Product> greaterThen15 = repository.findAll(productCostMoreThan(15));
         assertThat(greaterThen15, hasSize(1));
     }
 

@@ -13,6 +13,7 @@ import lombok.Singular;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -26,6 +27,10 @@ import java.util.Set;
 @Builder
 public class ProductDto implements Serializable {
     private static final long serialVersionUID = 5762617605382814204L;
+
+    @ApiModelProperty(readOnly = true)
+    @Null
+    private Long id;
 
     @NotEmpty
     private String name;
