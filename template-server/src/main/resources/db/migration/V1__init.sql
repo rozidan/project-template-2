@@ -19,6 +19,4 @@ tags_caption            VARCHAR(255),
 tags_level              INTEGER
 );
 
-CREATE TABLE IF NOT EXISTS product_seq (
-  next_val BIGINT(20) NULL DEFAULT NULL
-); 
+CREATE SEQUENCE product_seq START WITH 1 INCREMENT BY 1;
