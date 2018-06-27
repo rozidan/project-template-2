@@ -57,6 +57,14 @@ bootJar {
 
 jar {
     enabled = true
+    manifest {
+        attributes("Implementation-Title": rootProject.name,
+                "Implementation-Version": version)
+    }
+    from("${rootProject.projectDir}") {
+        include "LICENSE"
+        into "META-INF"
+    }
 }
 
 task javadocJar(type: Jar) {

@@ -54,4 +54,13 @@ dependencyManagement {
 
 bootJar {
     excludeDevtools = !rootProject.devtools
+    manifest {
+        attributes("Implementation-Title": rootProject.name,
+                "Implementation-Version": version)
+    }
+    from("${rootProject.projectDir}") {
+        include "LICENSE"
+        into "META-INF"
+    }
 }
+

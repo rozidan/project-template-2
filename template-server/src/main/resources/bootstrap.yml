@@ -2,6 +2,6 @@ spring:
   application.name: template
   cloud:
     config:
-      uri: https://configuration:8090
+      uri: http://configuration:8090
       failFast: false
       #enabled: false
