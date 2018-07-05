@@ -6,6 +6,7 @@ spring:
       password: root
 
   jpa:
+    open-in-view: true
     hibernate:
       ddl-auto: validate
       use-new-id-generator-mappings: true
@@ -25,8 +26,7 @@ server:
   port: 8080
 
 security:
-  basic:
-    enabled: false
+  basic.enabled: false
 
 management:
   security.enabled: false

@@ -1,6 +1,7 @@
 spring:
 
   jpa:
+    open-in-view: true
     show-sql: true
     hibernate:
       ddl-auto: create-drop
@@ -23,6 +24,12 @@ server:
   servlet:
     context-path: /template
   port: 8080
+
+security:
+  basic.enabled: false
+
+management:
+  security.enabled: false
 
 logging:
   level:
