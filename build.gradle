@@ -12,8 +12,8 @@ subprojects {
     apply from: '../gradle/license.gradle'
 
     ext {
-        springBootVersion = '2.0.2.RELEASE'
-        springCloudVersion = 'Finchley.BUILD-SNAPSHOT'
+        springBootVersion = '2.0.3.RELEASE'
+        springCloudVersion = 'Finchley.RELEASE'
     }
 
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -24,9 +24,6 @@ subprojects {
                     "Implementation-Version": project.version)
         }
     }
-
-    gradle.startParameter.excludedTaskNames += "license"
-    gradle.startParameter.excludedTaskNames += "javadoc"
 
     compileJava { options.fork = true }
 
