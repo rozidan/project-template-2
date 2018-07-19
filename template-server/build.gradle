@@ -15,9 +15,6 @@ apply from: '../gradle/docker.gradle'
 
 repositories {
     mavenCentral()
-    jcenter()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
     maven { url "https://oss.sonatype.org/content/groups/public" }
 }
 
@@ -30,15 +27,14 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.kafka:spring-kafka')
 
-    compile('com.github.rozidan:levelog-spring-boot:1.0.0-SNAPSHOT')
-    compile('com.github.rozidan:modelmapper-spring-boot-starter:1.0.1-SNAPSHOT')
-    compile('com.github.rozidan:logger-spring-boot:1.0.0-SNAPSHOT')
+    compile('com.github.rozidan:levelog-spring-boot:1.0.0-SNAPSHOT') { changing = true }
+    compile('com.github.rozidan:modelmapper-spring-boot-starter:1.0.1-SNAPSHOT') { changing = true }
+    compile('com.github.rozidan:logger-spring-boot:1.0.0-SNAPSHOT') { changing = true }
 
     compile('io.springfox:springfox-swagger2:2.9.2')
     compile('org.flywaydb:flyway-core')
 
     compile project(':template-client')
-
     compileOnly('org.projectlombok:lombok')
 
     runtime('com.h2database:h2')
@@ -47,6 +43,13 @@ dependencies {
 }
 
 dependencyManagement {
+    resolutionStrategy {
+        failOnVersionConflict()
+        // cache dynamic versions for 10 minutes
+        cacheDynamicVersionsFor 10*60, 'seconds'
+        // don't cache changing modules at all
+        cacheChangingModulesFor 0, 'seconds'
+    }
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
