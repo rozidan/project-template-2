@@ -15,6 +15,8 @@
  */
 package com.company.template.client;
 
+import java.util.function.BiPredicate;
+
 /**
  * @author Idan Rozenfeld
  */
@@ -24,8 +26,16 @@ public final class EnumUtils {
     }
 
     public static <T, E extends Enum<E> & IdentifierType<T>> E getByValue(final Class<E> enumClass, T value) {
+        return getByValue(enumClass, value, Object::equals);
+    }
+
+    public static <E extends Enum<E> & IdentifierType<String>> E getByValueIgnoreCase(final Class<E> enumClass, String value) {
+        return getByValue(enumClass, value, String::equalsIgnoreCase);
+    }
+
+    public static <T, E extends Enum<E> & IdentifierType<T>> E getByValue(final Class<E> enumClass, T value, BiPredicate<T, T> predicate) {
         for (final E e : enumClass.getEnumConstants()) {
-            if (e.getValue().equals(value)) {
+            if (predicate.test(e.getValue(), value)) {
                 return e;
             }
         }

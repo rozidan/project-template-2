@@ -14,9 +14,9 @@ CREATE TABLE IF NOT EXISTS product (
 );
 
 CREATE TABLE IF NOT EXISTS product_tags (
-product_id BIGINT       NOT NULL,
-tags_caption            VARCHAR(255),
-tags_level              INTEGER
+product_id           BIGINT       NOT NULL,
+tags_caption         VARCHAR(255),
+tags_level           INTEGER
 );
 
-CREATE SEQUENCE product_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE IF NOT EXISTS product_seq START WITH 1 INCREMENT BY 1;

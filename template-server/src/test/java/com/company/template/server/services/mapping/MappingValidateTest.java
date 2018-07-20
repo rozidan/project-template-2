@@ -36,7 +36,6 @@ public class MappingValidateTest {
     public void mapperValidation_shouldSuccess() {
         try {
             mapper.validate();
-
         } catch (ValidationException e) {
             fail(e.getMessage());
         }

@@ -25,29 +25,29 @@ import java.util.Objects;
 /**
  * @author Idan Rozenfeld
  */
-public enum ProductCategory implements IdentifierType<Integer> {
-    GAME(1), CLOTHING(2);
+public enum ProductCategory implements IdentifierType<String> {
+    GAME("GM"), CLOTHING("CL");
 
-    private final int id;
+    private final String id;
 
-    ProductCategory(int id) {
+    ProductCategory(String id) {
         this.id = id;
     }
 
-    public static ProductCategory byValue(int value) {
+    public static ProductCategory byValue(String value) {
         return EnumUtils.getByValue(ProductCategory.class, value);
     }
 
     @Override
-    public Integer getValue() {
+    public String getValue() {
         return id;
     }
 
     @Converter(autoApply = true)
-    public static class ProductCategoryConverter implements AttributeConverter<ProductCategory, Integer> {
+    public static class ProductCategoryConverter implements AttributeConverter<ProductCategory, String> {
 
         @Override
-        public Integer convertToDatabaseColumn(ProductCategory attribute) {
+        public String convertToDatabaseColumn(ProductCategory attribute) {
             if (Objects.nonNull(attribute)) {
                 return attribute.getValue();
             }
@@ -55,7 +55,7 @@ public enum ProductCategory implements IdentifierType<Integer> {
         }
 
         @Override
-        public ProductCategory convertToEntityAttribute(Integer dbData) {
+        public ProductCategory convertToEntityAttribute(String dbData) {
             if (Objects.nonNull(dbData)) {
                 return ProductCategory.byValue(dbData);
             }

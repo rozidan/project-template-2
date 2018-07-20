@@ -24,7 +24,7 @@ import java.util.Objects;
  * @author Idan Rozenfeld
  */
 public enum ProductCategoryDto implements IdentifierType<String> {
-    GAME("G"), CLOTHING("C");
+    GAME("GAME"), CLOTHING("CLOTHING");
 
     private final String id;
 
@@ -34,7 +34,7 @@ public enum ProductCategoryDto implements IdentifierType<String> {
 
     public static ProductCategoryDto byValue(String value) {
         if (Objects.nonNull(value)) {
-            return EnumUtils.getByValue(ProductCategoryDto.class, value);
+            return EnumUtils.getByValueIgnoreCase(ProductCategoryDto.class, value);
         }
 
         return null;
