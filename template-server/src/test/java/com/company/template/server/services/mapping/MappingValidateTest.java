@@ -15,13 +15,14 @@
  */
 package com.company.template.server.services.mapping;
 
-import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 
 import static org.junit.Assert.fail;
 

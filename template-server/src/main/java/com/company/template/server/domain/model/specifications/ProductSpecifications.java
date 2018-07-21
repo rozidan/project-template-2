@@ -15,9 +15,10 @@
  */
 package com.company.template.server.domain.model.specifications;
 
+import org.springframework.data.jpa.domain.Specification;
+
 import com.company.template.server.domain.model.Product;
 import lombok.experimental.UtilityClass;
-import org.springframework.data.jpa.domain.Specification;
 
 @UtilityClass
 public class ProductSpecifications {

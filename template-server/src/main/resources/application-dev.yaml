@@ -1,5 +1,8 @@
 spring:
 
+  flyway:
+    enabled: false
+
   jpa:
     open-in-view: true
     show-sql: true
@@ -13,23 +16,14 @@ spring:
     throw-exception-if-no-handler-found: true
 
   jackson:
-    default-property-inclusion: non-null
+    default-property-inclusion: non_null
     serialization:
       write-dates-as-timestamps: false
-
-  flyway:
-    enabled: false
 
 server:
   servlet:
     context-path: /template
   port: 8080
-
-security:
-  basic.enabled: false
-
-management:
-  security.enabled: false
 
 logging:
   level:

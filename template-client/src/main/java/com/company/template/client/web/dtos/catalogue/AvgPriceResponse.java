@@ -16,11 +16,9 @@
 package com.company.template.client.web.dtos.catalogue;
 
 import io.swagger.annotations.ApiModel;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 /**
  * @author Idan Rozenfeld

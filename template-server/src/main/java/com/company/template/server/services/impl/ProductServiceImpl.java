@@ -15,12 +15,6 @@
  */
 package com.company.template.server.services.impl;
 
-import com.company.template.client.web.dtos.ProductDto;
-import com.company.template.server.domain.model.Product;
-import com.company.template.server.domain.repositories.ProductRepository;
-import com.company.template.server.services.ProductService;
-import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
-import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -29,11 +23,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.server.domain.model.Product;
+import com.company.template.server.domain.repositories.ProductRepository;
+import com.company.template.server.services.ProductService;
+import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
+import lombok.AllArgsConstructor;
+
 /**
  * @author Idan Rozenfeld
  */
 @Service
-@AllArgsConstructor(onConstructor = @__({@Autowired}))
+@AllArgsConstructor(onConstructor_ = @Autowired)
 public class ProductServiceImpl implements ProductService {
 
     private final ModelMapper mapper;

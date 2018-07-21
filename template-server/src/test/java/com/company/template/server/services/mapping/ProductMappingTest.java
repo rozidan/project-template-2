@@ -15,18 +15,18 @@
  */
 package com.company.template.server.services.mapping;
 
-import com.company.template.client.web.dtos.ProductDto;
-import com.company.template.client.web.dtos.TagDto;
-import com.company.template.client.web.dtos.types.ProductCategoryDto;
-import com.company.template.server.domain.model.Product;
-import com.company.template.server.domain.model.types.ProductCategory;
-import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.client.web.dtos.TagDto;
+import com.company.template.client.web.dtos.types.ProductCategoryDto;
+import com.company.template.server.domain.model.Product;
+import com.company.template.server.domain.model.types.ProductCategory;
+import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 import java.util.Arrays;
 
 import static org.hamcrest.MatcherAssert.assertThat;

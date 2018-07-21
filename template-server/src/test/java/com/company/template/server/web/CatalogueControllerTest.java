@@ -15,15 +15,6 @@
  */
 package com.company.template.server.web;
 
-import com.company.template.client.web.dtos.ProductDto;
-import com.company.template.client.web.dtos.TagDto;
-import com.company.template.client.web.dtos.errors.ErrorCodes;
-import com.company.template.client.web.dtos.types.ProductCategoryDto;
-import com.company.template.server.config.JsonConfiguration;
-import com.company.template.server.services.ProductService;
-import com.company.template.server.web.controllers.CatalogueController;
-import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +25,16 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.client.web.dtos.TagDto;
+import com.company.template.client.web.dtos.errors.ErrorCodes;
+import com.company.template.client.web.dtos.types.ProductCategoryDto;
+import com.company.template.server.config.JsonConfiguration;
+import com.company.template.server.services.ProductService;
+import com.company.template.server.web.controllers.CatalogueController;
+import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;

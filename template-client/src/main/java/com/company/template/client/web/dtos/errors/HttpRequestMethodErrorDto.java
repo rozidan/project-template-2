@@ -15,13 +15,13 @@
  */
 package com.company.template.client.web.dtos.errors;
 
+import org.springframework.http.HttpMethod;
+
 import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Singular;
-import org.springframework.http.HttpMethod;
-
 import java.io.Serializable;
 import java.util.List;
 

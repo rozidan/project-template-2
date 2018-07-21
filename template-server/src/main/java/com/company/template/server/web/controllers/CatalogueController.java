@@ -15,20 +15,6 @@
  */
 package com.company.template.server.web.controllers;
 
-import com.company.template.client.web.dtos.ProductDto;
-import com.company.template.client.web.dtos.catalogue.AvgPriceResponse;
-import com.company.template.client.web.dtos.catalogue.CatalogueResponse;
-import com.company.template.client.web.dtos.errors.ErrorDto;
-import com.company.template.server.services.ProductService;
-import com.github.rozidan.springboot.logger.Loggable;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,6 +32,20 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
+import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.client.web.dtos.catalogue.AvgPriceResponse;
+import com.company.template.client.web.dtos.catalogue.CatalogueResponse;
+import com.company.template.client.web.dtos.errors.ErrorDto;
+import com.company.template.server.services.ProductService;
+import com.github.rozidan.springboot.logger.Loggable;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import lombok.AllArgsConstructor;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -55,7 +55,7 @@ import javax.servlet.http.HttpServletResponse;
 @Api(tags = "Catalogue")
 @RestController
 @RequestMapping(path = "/catalogue")
-@AllArgsConstructor(onConstructor = @__({@Autowired}))
+@AllArgsConstructor(onConstructor_ = @Autowired)
 public class CatalogueController {
 
     private final ProductService productService;

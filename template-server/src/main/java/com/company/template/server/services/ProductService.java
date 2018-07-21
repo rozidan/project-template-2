@@ -15,9 +15,10 @@
  */
 package com.company.template.server.services;
 
-import com.company.template.client.web.dtos.ProductDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import com.company.template.client.web.dtos.ProductDto;
 
 /**
  * @author Idan Rozenfeld

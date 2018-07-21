@@ -1,5 +1,8 @@
 spring:
 
+  flyway:
+    enabled: true
+
   datasource:
       url: jdbc:mariadb://maria:3306/template?createDatabaseIfNotExist=true
       username: root
@@ -17,28 +20,20 @@ spring:
     throw-exception-if-no-handler-found: true
 
   jackson:
-    default-property-inclusion: non-null
+    default-property-inclusion: non_null
     serialization:
       write-dates-as-timestamps: false
 
 server:
-  context-path: /template
   port: 8080
-
-security:
-  basic.enabled: false
-
-management:
-  security.enabled: false
+  servlet:
+    context-path: /template
 
 logging:
   file: logs/template.log
   level:
     root: info
     com.company.template: info
-
-flyway:
-  enabled: true
 
 levelog:
   kafka:

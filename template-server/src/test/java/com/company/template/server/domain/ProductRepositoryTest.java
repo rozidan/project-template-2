@@ -15,10 +15,6 @@
  */
 package com.company.template.server.domain;
 
-import com.company.template.server.domain.model.Product;
-import com.company.template.server.domain.model.Tag;
-import com.company.template.server.domain.model.types.ProductCategory;
-import com.company.template.server.domain.repositories.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +23,13 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.validation.ConstraintViolationException;
+import com.company.template.server.domain.model.Product;
+import com.company.template.server.domain.model.Tag;
+import com.company.template.server.domain.model.types.ProductCategory;
+import com.company.template.server.domain.repositories.ProductRepository;
 import java.util.List;
 import java.util.Optional;
+import javax.validation.ConstraintViolationException;
 
 import static com.company.template.server.domain.model.specifications.ProductSpecifications.productCostMoreThan;
 import static org.hamcrest.Matchers.equalTo;

@@ -15,12 +15,6 @@
  */
 package com.company.template.server.web.handlers;
 
-import com.company.template.client.web.dtos.errors.ErrorCodes;
-import com.company.template.client.web.dtos.errors.ErrorDto;
-import com.company.template.client.web.dtos.errors.HttpMediaTypeErrorDto;
-import com.company.template.client.web.dtos.errors.HttpRequestMethodErrorDto;
-import com.github.rozidan.springboot.logger.Loggable;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -30,6 +24,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.company.template.client.web.dtos.errors.ErrorCodes;
+import com.company.template.client.web.dtos.errors.ErrorDto;
+import com.company.template.client.web.dtos.errors.HttpMediaTypeErrorDto;
+import com.company.template.client.web.dtos.errors.HttpRequestMethodErrorDto;
+import com.github.rozidan.springboot.logger.Loggable;
+import lombok.extern.slf4j.Slf4j;
 import java.util.Collections;
 
 /**

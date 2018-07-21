@@ -15,20 +15,22 @@
  */
 package com.company.template.server.domain.repositories;
 
-import com.company.template.server.domain.model.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+import com.company.template.server.domain.model.Product;
 import java.util.List;
 import java.util.Optional;
 
 /**
  * @author Idan Rozenfeld
  */
+@Repository
 @RepositoryDefinition(domainClass = Product.class, idClass = Long.class)
 public interface ProductRepository {
     List<Product> findAll();

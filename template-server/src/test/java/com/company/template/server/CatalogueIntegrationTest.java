@@ -15,10 +15,6 @@
  */
 package com.company.template.server;
 
-import com.company.template.client.web.dtos.ProductDto;
-import com.company.template.client.web.dtos.TagDto;
-import com.company.template.client.web.dtos.catalogue.CatalogueResponse;
-import com.company.template.client.web.dtos.types.ProductCategoryDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +25,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.client.web.dtos.TagDto;
+import com.company.template.client.web.dtos.catalogue.CatalogueResponse;
+import com.company.template.client.web.dtos.types.ProductCategoryDto;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;

@@ -15,14 +15,6 @@
  */
 package com.company.template.server.services;
 
-import com.company.template.client.web.dtos.ProductDto;
-import com.company.template.client.web.dtos.TagDto;
-import com.company.template.client.web.dtos.types.ProductCategoryDto;
-import com.company.template.server.domain.repositories.ProductRepository;
-import com.company.template.server.services.impl.ProductServiceImpl;
-import com.company.template.server.services.mapping.MappingBasePackage;
-import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
-import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -32,6 +24,14 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.client.web.dtos.TagDto;
+import com.company.template.client.web.dtos.types.ProductCategoryDto;
+import com.company.template.server.domain.repositories.ProductRepository;
+import com.company.template.server.services.impl.ProductServiceImpl;
+import com.company.template.server.services.mapping.MappingBasePackage;
+import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
+import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.equalTo;

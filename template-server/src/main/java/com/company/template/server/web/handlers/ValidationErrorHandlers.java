@@ -15,12 +15,6 @@
  */
 package com.company.template.server.web.handlers;
 
-import com.company.template.client.web.dtos.errors.ErrorCodes;
-import com.company.template.client.web.dtos.errors.ErrorDto;
-import com.company.template.client.web.dtos.errors.ValidationErrorCodes;
-import com.company.template.client.web.dtos.errors.ValidationErrorDto;
-import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
-import com.github.rozidan.springboot.logger.Loggable;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -31,6 +25,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.company.template.client.web.dtos.errors.ErrorCodes;
+import com.company.template.client.web.dtos.errors.ErrorDto;
+import com.company.template.client.web.dtos.errors.ValidationErrorCodes;
+import com.company.template.client.web.dtos.errors.ValidationErrorDto;
+import com.company.template.server.web.handlers.exceptions.UniqueFieldException;
+import com.github.rozidan.springboot.logger.Loggable;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
