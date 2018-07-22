@@ -46,4 +46,12 @@ public abstract class AuditableEntity {
 
     @LastModifiedDate
     private Date lastModifiedDate;
+
+    public Date getCreatedDate() {
+        return new Date(createdDate.getTime());
+    }
+
+    public Date getLastModifiedDate() {
+        return new Date(lastModifiedDate.getTime());
+    }
 }

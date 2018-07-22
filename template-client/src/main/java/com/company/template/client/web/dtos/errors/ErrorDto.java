@@ -45,4 +45,8 @@ public class ErrorDto {
 
     @Singular
     private final Set<Object> errors;
+
+    public Date getTimestamp() {
+        return new Date(timestamp.getTime());
+    }
 }
