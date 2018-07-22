@@ -15,6 +15,10 @@
  */
 package com.company.template.server;
 
+import com.company.template.client.web.dtos.ProductDto;
+import com.company.template.client.web.dtos.TagDto;
+import com.company.template.client.web.dtos.catalogue.CatalogueResponse;
+import com.company.template.client.web.dtos.types.ProductCategoryDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +30,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.company.template.client.web.dtos.ProductDto;
-import com.company.template.client.web.dtos.TagDto;
-import com.company.template.client.web.dtos.catalogue.CatalogueResponse;
-import com.company.template.client.web.dtos.types.ProductCategoryDto;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 
 //https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
@@ -58,6 +58,7 @@ public class CatalogueIntegrationTest {
         ResponseEntity<CatalogueResponse> response =
                 this.restTemplate.postForEntity("/catalogue", product, CatalogueResponse.class);
         assertThat(response.getStatusCode(), is(equalTo(HttpStatus.CREATED)));
+        assertThat(response.getBody(), is(notNullValue()));
         assertThat(response.getBody().getProductId(), is(greaterThanOrEqualTo(0L)));
     }
 

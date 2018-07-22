@@ -15,6 +15,14 @@
  */
 package com.company.template.server.web.handlers;
 
+import java.util.Collections;
+
+import com.company.template.client.web.dtos.errors.ErrorCodes;
+import com.company.template.client.web.dtos.errors.ErrorDto;
+import com.company.template.client.web.dtos.errors.HttpMediaTypeErrorDto;
+import com.company.template.client.web.dtos.errors.HttpRequestMethodErrorDto;
+import com.github.rozidan.springboot.logger.Loggable;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -23,14 +31,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
-
-import com.company.template.client.web.dtos.errors.ErrorCodes;
-import com.company.template.client.web.dtos.errors.ErrorDto;
-import com.company.template.client.web.dtos.errors.HttpMediaTypeErrorDto;
-import com.company.template.client.web.dtos.errors.HttpRequestMethodErrorDto;
-import com.github.rozidan.springboot.logger.Loggable;
-import lombok.extern.slf4j.Slf4j;
-import java.util.Collections;
 
 /**
  * @author Idan Rozenfeld
@@ -81,7 +81,7 @@ public class GlobalErrorHandlers {
         return ErrorDto.builder()
                 .errorCode(ErrorCodes.HTTP_MEDIA_TYPE_NOT_SUPPORTED.toString())
                 .errors(Collections.singleton(HttpMediaTypeErrorDto.builder()
-                        .mediaType(ex.getContentType().toString())
+                        .mediaType(ex.getContentType())
                         .build()))
                 .message(ex.getLocalizedMessage())
                 .build();

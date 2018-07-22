@@ -16,13 +16,14 @@
 package com.company.template.client.web.dtos.errors;
 
 import io.swagger.annotations.ApiModel;
+import java.time.Instant;
+import java.util.Date;
+import java.util.Set;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Singular;
-import java.time.Instant;
-import java.util.Date;
-import java.util.Set;
 
 /**
  * @author Idan Rozenfeld
@@ -35,13 +36,13 @@ import java.util.Set;
 @Setter
 @Builder
 public class ErrorDto {
-    private String errorCode;
+    private final String errorCode;
 
-    private String message;
+    private final String message;
 
     @Builder.Default
-    private Date timestamp = Date.from(Instant.now());
+    private final Date timestamp = Date.from(Instant.now());
 
     @Singular
-    private Set<Object> errors;
+    private final Set<Object> errors;
 }

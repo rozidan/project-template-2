@@ -15,15 +15,15 @@
  */
 package com.company.template.client.web.dtos.errors;
 
-import org.springframework.http.HttpMethod;
-
 import io.swagger.annotations.ApiModel;
+import java.io.Serializable;
+import java.util.List;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Singular;
-import java.io.Serializable;
-import java.util.List;
+import org.springframework.http.HttpMethod;
 
 /**
  * @author Idan Rozenfeld
@@ -35,8 +35,8 @@ import java.util.List;
 public class HttpRequestMethodErrorDto implements Serializable {
     private static final long serialVersionUID = 4115067500106084449L;
 
-    private String actualMethod;
+    private final String actualMethod;
 
     @Singular
-    private List<HttpMethod> supportedMethods;
+    private final List<HttpMethod> supportedMethods;
 }
